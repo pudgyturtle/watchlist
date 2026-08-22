@@ -1,0 +1,156 @@
+{
+  "title": "Watchlist",
+  "categories": [
+    {
+      "id": "pc-insurers",
+      "title": "P&C Insurers",
+      "items": [
+        {
+          "ticker": "CB",
+          "name": "Chubb",
+          "symbol": "CB"
+        },
+        {
+          "ticker": "WRB",
+          "name": "W.R. Berkeley",
+          "symbol": "WRB"
+        },
+        {
+          "ticker": "KNSL",
+          "name": "Kinsale",
+          "symbol": "KNSL"
+        },
+        {
+          "ticker": "ACGL",
+          "name": "Arch Capital",
+          "symbol": "ACGL"
+        },
+        {
+          "ticker": "MKL",
+          "name": "Markel",
+          "symbol": "MKL"
+        }
+      ]
+    },
+    {
+      "id": "hard-assets",
+      "title": "Hard Assets / Gold / BTC",
+      "items": [
+        {
+          "ticker": "FNV",
+          "name": "Franco-Nevada",
+          "symbol": "FNV"
+        },
+        {
+          "ticker": "GLD",
+          "name": "SPDR Gold Shares",
+          "symbol": "GLD"
+        },
+        {
+          "ticker": "IAU",
+          "name": "iShares Gold Trust",
+          "symbol": "IAU"
+        },
+        {
+          "ticker": "VMET",
+          "name": "Versamet",
+          "symbol": "VMET.TO",
+          "symbol_candidates": [
+            "VMET",
+            "VMET.V",
+            "VMET.TO",
+            "VMET.NE"
+          ]
+        },
+        {
+          "ticker": "BTCUSD",
+          "name": "Bitcoin",
+          "symbol": "BTC-USD"
+        }
+      ]
+    },
+    {
+      "id": "lindy",
+      "title": "Lindy Companies",
+      "items": [
+        {
+          "ticker": "PM",
+          "name": "Philip Morris",
+          "symbol": "PM"
+        },
+        {
+          "ticker": "KO",
+          "name": "Coca-Cola",
+          "symbol": "KO"
+        },
+        {
+          "ticker": "MCD",
+          "name": "McDonald's",
+          "symbol": "MCD"
+        },
+        {
+          "ticker": "JNJ",
+          "name": "Johnson & Johnson",
+          "symbol": "JNJ"
+        },
+        {
+          "ticker": "CAT",
+          "name": "Caterpillar",
+          "symbol": "CAT"
+        },
+        {
+          "ticker": "DE",
+          "name": "John Deere",
+          "symbol": "DE"
+        },
+        {
+          "ticker": "EQT",
+          "name": "EQT Corp",
+          "symbol": "EQT"
+        },
+        {
+          "ticker": "TPL",
+          "name": "Texas Pacific Land",
+          "symbol": "TPL"
+        },
+        {
+          "ticker": "TSM",
+          "name": "Taiwan Semiconductor",
+          "symbol": "TSM"
+        }
+      ]
+    },
+    {
+      "id": "timber",
+      "title": "Timber",
+      "items": [
+        {
+          "ticker": "WY",
+          "name": "Weyerhaeuser",
+          "symbol": "WY"
+        }
+      ]
+    },
+    {
+      "id": "cash",
+      "title": "Cash Equivalents",
+      "items": [
+        {
+          "ticker": "SHY",
+          "name": "iShares 1-3 Year Treasury Bond ETF",
+          "symbol": "SHY"
+        },
+        {
+          "ticker": "IGSB",
+          "name": "iShares 1-5 Year Investment Grade Corporate Bond ETF",
+          "symbol": "IGSB"
+        },
+        {
+          "ticker": "FHYS",
+          "name": "Federated Hermes Short Duration High Yield ETF",
+          "symbol": "FHYS"
+        }
+      ]
+    }
+  ]
+}

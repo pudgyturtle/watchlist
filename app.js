@@ -513,7 +513,38 @@ export async function fetchDaily(symbol) {
   throw new Error(attempts.join(" | "));
 }
 
+async function fetchSnapshot(item) {
+  const url = `data/${encodeURIComponent(item.ticker)}.json?t=${Date.now()}`;
+  const text = await fetchText(url, 6000);
+  let data;
+  try {
+    data = JSON.parse(text);
+  } catch {
+    throw new Error("snapshot was not JSON");
+  }
+  const bars = data && Array.isArray(data.bars) ? data.bars : [];
+  if (bars.length < 30) throw new Error(`snapshot has only ${bars.length} bars`);
+  return {
+    bars,
+    meta: {},
+    tz: data.tz || NY_TZ,
+    source: data.source ? `snapshot/${data.source}` : "snapshot",
+    patched: !!data.patched,
+    name: data.name || "",
+    symbol: data.symbol || item.symbol,
+    fetchedAt: data.fetchedAt || null,
+  };
+}
+
 export async function fetchItem(item) {
+  try {
+    const snap = await fetchSnapshot(item);
+    const last = snap.bars[snap.bars.length - 1];
+    console.log(`[watchlist] ${item.ticker} source=${snap.source} bars=${snap.bars.length} last=${last.date} close=${last.close}`);
+    return snap;
+  } catch (err) {
+    console.warn(`[watchlist] ${item.ticker} snapshot failed:`, err.message || err);
+  }
   const seen = new Set();
   const symbols = [];
   for (const s of [item.symbol, ...(item.symbol_candidates || [])]) {

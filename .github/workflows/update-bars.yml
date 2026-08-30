@@ -1,0 +1,32 @@
+name: Update daily bars
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/30 13-20 * * 1-5'
+    - cron: '20 21 * * 1-5'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch daily bars from Yahoo
+        run: python3 scripts/fetch_bars.py
+
+      - name: Commit and push if data changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No bar snapshot changes"
+            exit 0
+          fi
+          git commit -m "Update daily bars snapshot"
+          git push

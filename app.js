@@ -513,38 +513,7 @@ export async function fetchDaily(symbol) {
   throw new Error(attempts.join(" | "));
 }
 
-async function fetchSnapshot(item) {
-  const url = `data/${encodeURIComponent(item.ticker)}.json?t=${Date.now()}`;
-  const text = await fetchText(url, 6000);
-  let data;
-  try {
-    data = JSON.parse(text);
-  } catch {
-    throw new Error("snapshot was not JSON");
-  }
-  const bars = data && Array.isArray(data.bars) ? data.bars : [];
-  if (bars.length < 30) throw new Error(`snapshot has only ${bars.length} bars`);
-  return {
-    bars,
-    meta: {},
-    tz: data.tz || NY_TZ,
-    source: data.source ? `snapshot/${data.source}` : "snapshot",
-    patched: !!data.patched,
-    name: data.name || "",
-    symbol: data.symbol || item.symbol,
-    fetchedAt: data.fetchedAt || null,
-  };
-}
-
 export async function fetchItem(item) {
-  try {
-    const snap = await fetchSnapshot(item);
-    const last = snap.bars[snap.bars.length - 1];
-    console.log(`[watchlist] ${item.ticker} source=${snap.source} bars=${snap.bars.length} last=${last.date} close=${last.close}`);
-    return snap;
-  } catch (err) {
-    console.warn(`[watchlist] ${item.ticker} snapshot failed:`, err.message || err);
-  }
   const seen = new Set();
   const symbols = [];
   for (const s of [item.symbol, ...(item.symbol_candidates || [])]) {
@@ -687,7 +656,7 @@ export function renderChart(canvas, model) {
   const chgPct = prevClose ? (chg / prevClose) * 100 : 0;
 
   const wrap = canvas.parentElement;
-  const cssW = Math.max(280, (wrap && wrap.clientWidth) || 740);
+  const cssW = Math.max(280, (wrap && wrap.clientWidth) || 880);
   const cssH = Math.round(cssW * (10.15 / 16.2));
   const dpr = Math.min(window.devicePixelRatio || 1, 2.5);
   canvas.width = Math.round(cssW * dpr);
@@ -706,18 +675,16 @@ export function renderChart(canvas, model) {
   const bot0 = Math.round(cssH * 0.948);
   const plotH = bot0 - top0;
   const gap = Math.max(3, Math.round(plotH * 0.012));
-  const units = 1.12 + 4.35 + 1.22 + 1.12;
-  const usable = plotH - 3 * gap;
+  const units = 1.12 + 4.35 + 1.22;
+  const usable = plotH - 2 * gap;
   const hRsi = usable * (1.12 / units);
   const hPx = usable * (4.35 / units);
   const hMacd = usable * (1.22 / units);
-  const hFi = usable * (1.12 / units);
 
   const panels = {
     rsi: { top: top0, h: hRsi },
     px: { top: top0 + hRsi + gap, h: hPx },
     macd: { top: top0 + hRsi + gap + hPx + gap, h: hMacd },
-    fi: { top: top0 + hRsi + gap + hPx + gap + hMacd + gap, h: hFi },
   };
 
   const xMin = -0.7;
@@ -953,109 +920,6 @@ export function renderChart(canvas, model) {
     if (Number.isFinite(last.macd)) {
       drawValueTag(ctx, right + 1, yOf(last.macd), last.macd.toFixed(2), COLORS.MACD_LINE);
     }
-  }
-
-  // ----- Force Index -----
-  {
-    const p = panels.fi;
-    const fin = view.map((b) => b.force).filter(Number.isFinite);
-    const fiAbs = fin.length ? Math.max(...fin.map(Math.abs)) : 1;
-    const ymin = -fiAbs * 1.2, ymax = fiAbs * 1.2;
-    const yOf = (v) => yLin(p, v, ymin, ymax);
-    ctx.save();
-    clipPanel(p);
-    ctx.beginPath();
-    ctx.moveTo(left, yOf(0));
-    ctx.lineTo(right, yOf(0));
-    ctx.strokeStyle = COLORS.ZERO;
-    ctx.lineWidth = 0.7;
-    ctx.stroke();
-    const y0 = yOf(0);
-    ctx.beginPath();
-    let started = false;
-    for (let i = 0; i < n; i++) {
-      const v = view[i].force;
-      if (!Number.isFinite(v) || v < 0) {
-        if (started) {
-          ctx.lineTo(xs[i], y0);
-          ctx.closePath();
-          ctx.fillStyle = COLORS.FI_POS;
-          ctx.globalAlpha = 0.75;
-          ctx.fill();
-          ctx.globalAlpha = 1;
-          ctx.beginPath();
-          started = false;
-        }
-        continue;
-      }
-      if (!started) {
-        ctx.moveTo(xs[i], y0);
-        ctx.lineTo(xs[i], yOf(v));
-        started = true;
-      } else {
-        ctx.lineTo(xs[i], yOf(v));
-      }
-    }
-    if (started) {
-      ctx.lineTo(xs[n - 1], y0);
-      ctx.closePath();
-      ctx.fillStyle = COLORS.FI_POS;
-      ctx.globalAlpha = 0.75;
-      ctx.fill();
-      ctx.globalAlpha = 1;
-    }
-    ctx.beginPath();
-    started = false;
-    for (let i = 0; i < n; i++) {
-      const v = view[i].force;
-      if (!Number.isFinite(v) || v >= 0) {
-        if (started) {
-          ctx.lineTo(xs[i], y0);
-          ctx.closePath();
-          ctx.fillStyle = COLORS.FI_NEG;
-          ctx.globalAlpha = 0.8;
-          ctx.fill();
-          ctx.globalAlpha = 1;
-          ctx.beginPath();
-          started = false;
-        }
-        continue;
-      }
-      if (!started) {
-        ctx.moveTo(xs[i], y0);
-        ctx.lineTo(xs[i], yOf(v));
-        started = true;
-      } else {
-        ctx.lineTo(xs[i], yOf(v));
-      }
-    }
-    if (started) {
-      ctx.lineTo(xs[n - 1], y0);
-      ctx.closePath();
-      ctx.fillStyle = COLORS.FI_NEG;
-      ctx.globalAlpha = 0.8;
-      ctx.fill();
-      ctx.globalAlpha = 1;
-    }
-    drawLine(ctx, xs, view.map((b) => b.force), yOf, COLORS.FI_LINE, 0.8);
-    ctx.restore();
-    strokeFrame(p);
-    ctx.fillStyle = COLORS.MUTED;
-    ctx.font = "8.5px Arial, Helvetica, sans-serif";
-    ctx.textAlign = "left";
-    ctx.textBaseline = "middle";
-    for (const t of niceFiTicks(fiAbs)) {
-      ctx.fillText(compactNumber(t), right + 5, yOf(t));
-    }
-    let fiLbl = "Force Index (13)";
-    if (Number.isFinite(last.force)) fiLbl += `    ${compactNumber(last.force, 2)}`;
-    panelLabel(ctx, left + 4, p.top + 11, fiLbl);
-    if (Number.isFinite(last.force)) {
-      const tagColor = last.force >= 0 ? "#2E7D32" : "#C62828";
-      drawValueTag(ctx, right + 1, yOf(last.force), compactNumber(last.force, 2), tagColor);
-    }
-
-    // x labels
     ctx.fillStyle = COLORS.MUTED;
     ctx.font = "9px Arial, Helvetica, sans-serif";
     ctx.textAlign = "center";
@@ -1064,6 +928,8 @@ export function renderChart(canvas, model) {
       ctx.fillText(m.label, xOf(m.i), p.top + p.h + 4);
     }
   }
+
+  // Force Index removed — MACD is the bottom pane.
 
   // header
   ctx.fillStyle = COLORS.TEXT;

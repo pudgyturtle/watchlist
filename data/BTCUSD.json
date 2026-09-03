@@ -5,7 +5,7 @@
   "tz": "UTC",
   "source": "yahoo-query1",
   "patched": true,
-  "fetchedAt": "2026-09-03T21:19:54Z",
+  "fetchedAt": "2026-09-03T21:48:08Z",
   "bars": [
     {
       "date": "2024-09-03",

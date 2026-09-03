@@ -536,28 +536,61 @@ async function fetchSnapshot(item) {
   };
 }
 
-export async function fetchItem(item) {
+async function tryYahooLive(symbol) {
   try {
-    const snap = await fetchSnapshot(item);
+    const url = yahooChartUrl(symbol, "query1");
+    const text = await fetchText(url, 4000);
+    const parsed = parseYahooChart(text);
+    const live = applyLiveLastBar(parsed.bars, parsed.meta, parsed.tz);
+    return {
+      bars: live.bars,
+      meta: parsed.meta,
+      tz: parsed.tz,
+      source: "yahoo-query1",
+      patched: live.patched,
+      name: parsed.meta.shortName || parsed.meta.longName || "",
+      fetchedAt: new Date().toISOString(),
+      symbol,
+    };
+  } catch {
+    return null;
+  }
+}
+
+export async function fetchItem(item) {
+  let snap = null;
+  try {
+    snap = await fetchSnapshot(item);
     const last = snap.bars[snap.bars.length - 1];
     console.log(`[watchlist] ${item.ticker} source=${snap.source} bars=${snap.bars.length} last=${last.date} close=${last.close}`);
-    return snap;
   } catch (err) {
     console.warn(`[watchlist] ${item.ticker} snapshot failed:`, err.message || err);
   }
   const seen = new Set();
   const symbols = [];
-  for (const s of [item.symbol, ...(item.symbol_candidates || [])]) {
+  for (const s of [item.symbol, ...(item.symbol_candidates || []), snap && snap.symbol]) {
     if (s && !seen.has(s)) {
       seen.add(s);
       symbols.push(s);
     }
   }
+  for (const symbol of symbols) {
+    const live = await tryYahooLive(symbol);
+    if (!live) continue;
+    const liveLast = live.bars[live.bars.length - 1];
+    const snapLast = snap ? snap.bars[snap.bars.length - 1] : null;
+    if (!snapLast || liveLast.date > snapLast.date ||
+        (liveLast.date === snapLast.date && liveLast.close !== snapLast.close)) {
+      console.log(`[watchlist] ${item.ticker} live patch ${liveLast.date} close=${liveLast.close}`);
+      return live;
+    }
+  }
+  if (snap) return snap;
   let lastErr;
   for (const symbol of symbols) {
     try {
       const out = await fetchDaily(symbol);
-      return { ...out, symbol };
+      return { ...out, symbol, fetchedAt: new Date().toISOString() };
     } catch (err) {
       lastErr = err;
     }
@@ -1077,6 +1110,7 @@ async function renderOne(item) {
       last: last.date,
       close: last.close,
       source: data.source,
+      fetchedAt: data.fetchedAt || null,
     };
   } catch (err) {
     const msg = err && err.message ? err.message : String(err);
@@ -1090,7 +1124,17 @@ async function renderOne(item) {
   }
 }
 
-function updateAsOf(results, fetchedAt) {
+function formatCtTime(iso) {
+  const d = iso ? new Date(iso) : null;
+  if (!d || Number.isNaN(d.getTime())) return "";
+  return d.toLocaleTimeString("en-US", {
+    timeZone: "America/Chicago",
+    hour: "numeric",
+    minute: "2-digit",
+  }) + " CT";
+}
+
+function updateAsOf(results, _loadedAt) {
   const el = document.getElementById("asof");
   const ok = results.filter((r) => r.ok);
   const failed = results.filter((r) => !r.ok);
@@ -1104,13 +1148,11 @@ function updateAsOf(results, fetchedAt) {
     for (const d of pool) counts[d] = (counts[d] || 0) + 1;
     common = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
   }
-  const t = fetchedAt.toLocaleTimeString(undefined, {
-    hour: "numeric",
-    minute: "2-digit",
-    second: "2-digit",
-  });
+  const stamps = ok.map((r) => r.fetchedAt).filter(Boolean).sort();
+  const stamp = stamps.length ? stamps[stamps.length - 1] : null;
   const dateBit = common ? formatDayMonYear(common) : "n/a";
-  let text = `As of ${dateBit} · fetched ${t}`;
+  const timeBit = formatCtTime(stamp);
+  let text = timeBit ? `Last bar ${dateBit} · snapshot ${timeBit}` : `Last bar ${dateBit}`;
   if (failed.length) text += ` · ${failed.length} failed`;
   el.textContent = text;
 }

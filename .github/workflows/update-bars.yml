@@ -3,8 +3,13 @@ name: Update daily bars
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/30 13-20 * * 1-5'
+    # Weekdays, America/Chicago (CDT = UTC-5 in this season)
+    # Session: every 15 min ~8:00 AM–2:45 PM CT, plus 3:00 PM CT cash close
+    - cron: '*/15 13-19 * * 1-5'
+    - cron: '0 20 * * 1-5'
+    # Post-close primary ~4:20 PM CT, optional settle ~5:30 PM CT
     - cron: '20 21 * * 1-5'
+    - cron: '30 22 * * 1-5'
 
 permissions:
   contents: write

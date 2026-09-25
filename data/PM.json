@@ -4,8 +4,8 @@
   "name": "Philip Morris International Inc",
   "tz": "America/New_York",
   "source": "yahoo-query1",
-  "patched": true,
-  "fetchedAt": "2026-09-25T19:25:53Z",
+  "patched": false,
+  "fetchedAt": "2026-09-25T19:39:13Z",
   "bars": [
     {
       "date": "2024-09-25",
@@ -4522,8 +4522,8 @@
       "open": 190.5500030517578,
       "high": 190.98800659179688,
       "low": 187.30999755859375,
-      "close": 189.325,
-      "volume": 1529349.0
+      "close": 189.375,
+      "volume": 1604008.0
     }
   ]
 }

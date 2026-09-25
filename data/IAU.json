@@ -4,8 +4,8 @@
   "name": "iShares Gold Trust Shares",
   "tz": "America/New_York",
   "source": "yahoo-query1",
-  "patched": false,
-  "fetchedAt": "2026-09-25T19:25:52Z",
+  "patched": true,
+  "fetchedAt": "2026-09-25T19:39:12Z",
   "bars": [
     {
       "date": "2024-09-25",
@@ -4514,7 +4514,7 @@
       "high": 80.58000183105469,
       "low": 79.76000213623047,
       "close": 80.30000305175781,
-      "volume": 5884400.0
+      "volume": 5896400.0
     },
     {
       "date": "2026-09-25",
@@ -4522,8 +4522,8 @@
       "open": 80.4000015258789,
       "high": 80.81500244140625,
       "low": 79.95999908447266,
-      "close": 80.625,
-      "volume": 3685103.0
+      "close": 80.69,
+      "volume": 3809135.0
     }
   ]
 }

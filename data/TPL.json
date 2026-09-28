@@ -3,9 +3,9 @@
   "symbol": "TPL",
   "name": "Texas Pacific Land Corporation",
   "tz": "America/New_York",
-  "source": "yahoo-query1",
+  "source": "yahoo-query2",
   "patched": true,
-  "fetchedAt": "2026-09-28T19:13:09Z",
+  "fetchedAt": "2026-09-28T19:29:59Z",
   "bars": [
     {
       "date": "2024-09-30",
@@ -4504,8 +4504,8 @@
       "open": 344.0,
       "high": 344.3800048828125,
       "low": 338.635,
-      "close": 339.55,
-      "volume": 132891.0
+      "close": 340.096,
+      "volume": 141902.0
     }
   ]
 }

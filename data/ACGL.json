@@ -4,8 +4,8 @@
   "name": "Arch Capital Group Ltd.",
   "tz": "America/New_York",
   "source": "yahoo-query1",
-  "patched": true,
-  "fetchedAt": "2026-10-01T14:29:04Z",
+  "patched": false,
+  "fetchedAt": "2026-10-01T14:42:20Z",
   "bars": [
     {
       "date": "2024-10-01",
@@ -4520,10 +4520,10 @@
       "date": "2026-10-01",
       "ts": 1790861400,
       "open": 92.58000183105469,
-      "high": 93.53500366210938,
+      "high": 93.83000183105469,
       "low": 92.27999877929688,
-      "close": 93.35,
-      "volume": 810224.0
+      "close": 93.75,
+      "volume": 893977.0
     }
   ]
 }

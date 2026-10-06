@@ -4,8 +4,8 @@
   "name": "McDonald's Corporation",
   "tz": "America/New_York",
   "source": "yahoo-query1",
-  "patched": false,
-  "fetchedAt": "2026-10-06T14:31:35Z",
+  "patched": true,
+  "fetchedAt": "2026-10-06T14:45:58Z",
   "bars": [
     {
       "date": "2024-10-07",
@@ -4513,8 +4513,8 @@
       "open": 233.34500122070312,
       "high": 234.3000030517578,
       "low": 231.6999969482422,
-      "close": 233.625,
-      "volume": 858209.0
+      "close": 233.71,
+      "volume": 978541.0
     }
   ]
 }

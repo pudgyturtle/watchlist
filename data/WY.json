@@ -4,8 +4,8 @@
   "name": "Weyerhaeuser Company",
   "tz": "America/New_York",
   "source": "yahoo-query1",
-  "patched": false,
-  "fetchedAt": "2026-10-13T17:26:35Z",
+  "patched": true,
+  "fetchedAt": "2026-10-13T17:48:31Z",
   "bars": [
     {
       "date": "2024-10-14",
@@ -4513,8 +4513,8 @@
       "open": 19.184999465942383,
       "high": 19.190000534057617,
       "low": 18.7549991607666,
-      "close": 18.875,
-      "volume": 2659138.0
+      "close": 18.845,
+      "volume": 2857404.0
     }
   ]
 }

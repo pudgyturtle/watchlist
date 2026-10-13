@@ -4,8 +4,8 @@
   "name": "Caterpillar, Inc.",
   "tz": "America/New_York",
   "source": "yahoo-query1",
-  "patched": false,
-  "fetchedAt": "2026-10-13T16:36:31Z",
+  "patched": true,
+  "fetchedAt": "2026-10-13T16:56:12Z",
   "bars": [
     {
       "date": "2024-10-14",
@@ -4513,8 +4513,8 @@
       "open": 791.0,
       "high": 792.7000122070312,
       "low": 755.3099975585938,
-      "close": 763.0,
-      "volume": 1793949.0
+      "close": 762.31,
+      "volume": 1880122.0
     }
   ]
 }

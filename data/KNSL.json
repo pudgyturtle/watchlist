@@ -4,8 +4,8 @@
   "name": "Kinsale Capital Group, Inc.",
   "tz": "America/New_York",
   "source": "yahoo-query1",
-  "patched": false,
-  "fetchedAt": "2026-10-14T17:18:43Z",
+  "patched": true,
+  "fetchedAt": "2026-10-14T17:38:27Z",
   "bars": [
     {
       "date": "2024-10-14",
@@ -4522,8 +4522,8 @@
       "open": 337.94000244140625,
       "high": 342.75,
       "low": 335.80499267578125,
-      "close": 339.25,
-      "volume": 53868.0
+      "close": 340.56,
+      "volume": 57692.0
     }
   ]
 }

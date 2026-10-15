@@ -4,8 +4,8 @@
   "name": "Taiwan Semiconductor Manufactur",
   "tz": "America/New_York",
   "source": "yahoo-query1",
-  "patched": true,
-  "fetchedAt": "2026-10-15T16:57:01Z",
+  "patched": false,
+  "fetchedAt": "2026-10-15T17:04:58Z",
   "bars": [
     {
       "date": "2024-10-15",
@@ -4522,8 +4522,8 @@
       "open": 415.1700134277344,
       "high": 420.8500061035156,
       "low": 407.1499938964844,
-      "close": 418.12,
-      "volume": 15397233.0
+      "close": 418.125,
+      "volume": 15504208.0
     }
   ]
 }

@@ -4,8 +4,8 @@
   "name": "Deere & Company",
   "tz": "America/New_York",
   "source": "yahoo-query1",
-  "patched": false,
-  "fetchedAt": "2026-10-16T13:54:47Z",
+  "patched": true,
+  "fetchedAt": "2026-10-16T14:09:47Z",
   "bars": [
     {
       "date": "2024-10-16",
@@ -4521,9 +4521,9 @@
       "ts": 1792157400,
       "open": 652.5800170898438,
       "high": 655.1500244140625,
-      "low": 649.8699951171875,
-      "close": 651.875,
-      "volume": 113475.0
+      "low": 649.64,
+      "close": 649.64,
+      "volume": 157462.0
     }
   ]
 }

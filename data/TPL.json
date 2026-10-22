@@ -4,8 +4,8 @@
   "name": "Texas Pacific Land Corporation",
   "tz": "America/New_York",
   "source": "yahoo-query1",
-  "patched": true,
-  "fetchedAt": "2026-10-22T14:23:50Z",
+  "patched": false,
+  "fetchedAt": "2026-10-22T14:35:11Z",
   "bars": [
     {
       "date": "2024-10-22",
@@ -4521,9 +4521,9 @@
       "ts": 1792675800,
       "open": 342.989990234375,
       "high": 344.1050109863281,
-      "low": 328.58,
-      "close": 330.41,
-      "volume": 41917.0
+      "low": 325.8399963378906,
+      "close": 327.0,
+      "volume": 48160.0
     }
   ]
 }

@@ -4,8 +4,8 @@
   "name": "Bitcoin USD",
   "tz": "UTC",
   "source": "yahoo-query1",
-  "patched": true,
-  "fetchedAt": "2026-10-26T15:55:09Z",
+  "patched": false,
+  "fetchedAt": "2026-10-26T16:06:13Z",
   "bars": [
     {
       "date": "2024-10-26",
@@ -6583,8 +6583,8 @@
       "open": 80039.6875,
       "high": 80612.2421875,
       "low": 79343.65625,
-      "close": 80358.05,
-      "volume": 25478504448.0
+      "close": 80145.75,
+      "volume": 25681874944.0
     }
   ]
 }

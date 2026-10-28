@@ -4,8 +4,8 @@
   "name": "Federated Hermes Short Duration",
   "tz": "America/New_York",
   "source": "yahoo-query1",
-  "patched": false,
-  "fetchedAt": "2026-10-27T23:39:22Z",
+  "patched": true,
+  "fetchedAt": "2026-10-28T00:33:12Z",
   "bars": [
     {
       "date": "2024-10-28",
@@ -4509,10 +4509,10 @@
     },
     {
       "date": "2026-10-27",
-      "ts": 1793107800,
-      "open": 22.65999984741211,
+      "ts": 1793131200,
+      "open": 22.6299991607666,
       "high": 22.75,
-      "low": 22.639999389648438,
+      "low": 22.6299991607666,
       "close": 22.75,
       "volume": 26452.0
     }

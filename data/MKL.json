@@ -4,8 +4,8 @@
   "name": "Markel Group Inc.",
   "tz": "America/New_York",
   "source": "yahoo-query1",
-  "patched": false,
-  "fetchedAt": "2026-10-29T19:22:01Z",
+  "patched": true,
+  "fetchedAt": "2026-10-29T19:38:24Z",
   "bars": [
     {
       "date": "2024-10-29",
@@ -4522,8 +4522,8 @@
       "open": 1873.739990234375,
       "high": 1902.166015625,
       "low": 1838.199951171875,
-      "close": 1861.0,
-      "volume": 39152.0
+      "close": 1863.721,
+      "volume": 41698.0
     }
   ]
 }

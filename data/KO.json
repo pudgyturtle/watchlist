@@ -4,8 +4,8 @@
   "name": "Coca-Cola Company (The)",
   "tz": "America/New_York",
   "source": "yahoo-query1",
-  "patched": true,
-  "fetchedAt": "2026-11-02T14:36:33Z",
+  "patched": false,
+  "fetchedAt": "2026-11-02T14:48:28Z",
   "bars": [
     {
       "date": "2024-11-04",
@@ -4501,11 +4501,11 @@
     {
       "date": "2026-11-02",
       "ts": 1793629800,
-      "open": 94.5199966430664,
-      "high": 94.71,
+      "open": 94.27999877929688,
+      "high": 95.05000305175781,
       "low": 94.27999877929688,
-      "close": 94.7,
-      "volume": 1104099.0
+      "close": 94.875,
+      "volume": 1741591.0
     }
   ]
 }

@@ -4,8 +4,8 @@
   "name": "Chubb Limited",
   "tz": "America/New_York",
   "source": "yahoo-query1",
-  "patched": false,
-  "fetchedAt": "2026-11-03T14:47:33Z",
+  "patched": true,
+  "fetchedAt": "2026-11-03T15:12:55Z",
   "bars": [
     {
       "date": "2024-11-04",
@@ -4513,8 +4513,8 @@
       "open": 366.4200134277344,
       "high": 367.6600036621094,
       "low": 364.5826110839844,
-      "close": 365.625,
-      "volume": 44631.0
+      "close": 366.415,
+      "volume": 85675.0
     }
   ]
 }

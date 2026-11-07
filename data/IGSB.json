@@ -5,7 +5,7 @@
   "tz": "America/New_York",
   "source": "yahoo-query1",
   "patched": true,
-  "fetchedAt": "2026-11-07T00:01:44Z",
+  "fetchedAt": "2026-11-07T00:58:12Z",
   "bars": [
     {
       "date": "2024-11-07",

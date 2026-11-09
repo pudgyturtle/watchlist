@@ -4,8 +4,8 @@
   "name": "Franco-Nevada Corporation",
   "tz": "America/New_York",
   "source": "yahoo-query1",
-  "patched": true,
-  "fetchedAt": "2026-11-09T20:55:40Z",
+  "patched": false,
+  "fetchedAt": "2026-11-09T21:07:28Z",
   "bars": [
     {
       "date": "2024-11-11",
@@ -4504,8 +4504,8 @@
       "open": 261.989990234375,
       "high": 265.8500061035156,
       "low": 260.0,
-      "close": 263.91,
-      "volume": 529139.0
+      "close": 263.5,
+      "volume": 595033.0
     }
   ]
 }

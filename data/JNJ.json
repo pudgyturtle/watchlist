@@ -4,8 +4,8 @@
   "name": "Johnson & Johnson",
   "tz": "America/New_York",
   "source": "yahoo-query1",
-  "patched": true,
-  "fetchedAt": "2026-11-10T14:54:31Z",
+  "patched": false,
+  "fetchedAt": "2026-11-10T15:03:46Z",
   "bars": [
     {
       "date": "2024-11-11",
@@ -4512,9 +4512,9 @@
       "ts": 1794321000,
       "open": 282.0,
       "high": 283.2502136230469,
-      "low": 280.55999755859375,
-      "close": 280.56,
-      "volume": 551525.0
+      "low": 280.1549987792969,
+      "close": 280.625,
+      "volume": 686532.0
     }
   ]
 }

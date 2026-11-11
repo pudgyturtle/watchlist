@@ -4,8 +4,8 @@
   "name": "SPDR Gold Shares",
   "tz": "America/New_York",
   "source": "yahoo-query1",
-  "patched": false,
-  "fetchedAt": "2026-11-11T17:22:18Z",
+  "patched": true,
+  "fetchedAt": "2026-11-11T17:38:46Z",
   "bars": [
     {
       "date": "2024-11-11",
@@ -4522,8 +4522,8 @@
       "open": 369.3599853515625,
       "high": 369.3800048828125,
       "low": 366.36358642578125,
-      "close": 366.75,
-      "volume": 2860749.0
+      "close": 366.8,
+      "volume": 3018526.0
     }
   ]
 }

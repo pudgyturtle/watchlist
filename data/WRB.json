@@ -4,8 +4,8 @@
   "name": "W.R. Berkley Corporation",
   "tz": "America/New_York",
   "source": "yahoo-query1",
-  "patched": false,
-  "fetchedAt": "2026-11-13T14:38:06Z",
+  "patched": true,
+  "fetchedAt": "2026-11-13T14:50:36Z",
   "bars": [
     {
       "date": "2024-11-13",
@@ -4519,11 +4519,11 @@
     {
       "date": "2026-11-13",
       "ts": 1794580200,
-      "open": 77.81999969482422,
+      "open": 77.94000244140625,
       "high": 77.94000244140625,
-      "low": 77.5,
-      "close": 77.5,
-      "volume": 21872.0
+      "low": 77.48,
+      "close": 77.87,
+      "volume": 64434.0
     }
   ]
 }

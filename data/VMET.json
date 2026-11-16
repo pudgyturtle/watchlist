@@ -4,8 +4,8 @@
   "name": "VERSAMET ROYALTIES CORPORATION",
   "tz": "America/Toronto",
   "source": "yahoo-query1",
-  "patched": false,
-  "fetchedAt": "2026-11-16T16:50:36Z",
+  "patched": true,
+  "fetchedAt": "2026-11-16T17:07:44Z",
   "bars": [
     {
       "date": "2025-12-10",
@@ -2109,9 +2109,9 @@
       "ts": 1794839400,
       "open": 11.229999542236328,
       "high": 11.295000076293945,
-      "low": 11.0,
-      "close": 11.0,
-      "volume": 42523.0
+      "low": 10.93,
+      "close": 10.95,
+      "volume": 49224.0
     }
   ]
 }

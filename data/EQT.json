@@ -4,8 +4,8 @@
   "name": "EQT Corporation",
   "tz": "America/New_York",
   "source": "yahoo-query1",
-  "patched": false,
-  "fetchedAt": "2026-11-16T18:20:32Z",
+  "patched": true,
+  "fetchedAt": "2026-11-16T18:41:40Z",
   "bars": [
     {
       "date": "2024-11-18",
@@ -4503,9 +4503,9 @@
       "ts": 1794839400,
       "open": 52.220001220703125,
       "high": 52.32500076293945,
-      "low": 51.54999923706055,
-      "close": 51.625,
-      "volume": 1995258.0
+      "low": 51.459999084472656,
+      "close": 51.615,
+      "volume": 2215694.0
     }
   ]
 }

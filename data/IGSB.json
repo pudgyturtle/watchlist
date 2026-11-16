@@ -4,8 +4,8 @@
   "name": "iShares 1-5 Year Investment Gra",
   "tz": "America/New_York",
   "source": "yahoo-query1",
-  "patched": true,
-  "fetchedAt": "2026-11-16T14:40:23Z",
+  "patched": false,
+  "fetchedAt": "2026-11-16T14:57:07Z",
   "bars": [
     {
       "date": "2024-11-18",
@@ -4504,8 +4504,8 @@
       "open": 51.25,
       "high": 51.27000045776367,
       "low": 51.25,
-      "close": 51.26,
-      "volume": 63524.0
+      "close": 51.25,
+      "volume": 96609.0
     }
   ]
 }

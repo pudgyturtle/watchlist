@@ -4,8 +4,8 @@
   "name": "iShares 1-3 Year Treasury Bond ",
   "tz": "America/New_York",
   "source": "yahoo-query1",
-  "patched": false,
-  "fetchedAt": "2026-11-19T18:27:31Z",
+  "patched": true,
+  "fetchedAt": "2026-11-19T18:39:34Z",
   "bars": [
     {
       "date": "2024-11-19",
@@ -4522,8 +4522,8 @@
       "open": 81.29000091552734,
       "high": 81.38500213623047,
       "low": 81.2699966430664,
-      "close": 81.375,
-      "volume": 1718652.0
+      "close": 81.365,
+      "volume": 1756749.0
     }
   ]
 }

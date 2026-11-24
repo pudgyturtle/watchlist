@@ -5,7 +5,7 @@
   "tz": "America/New_York",
   "source": "yahoo-query1",
   "patched": true,
-  "fetchedAt": "2026-11-24T17:10:57Z",
+  "fetchedAt": "2026-11-24T17:19:52Z",
   "bars": [
     {
       "date": "2024-11-25",
@@ -4511,10 +4511,10 @@
       "date": "2026-11-24",
       "ts": 1795530600,
       "open": 19.71500015258789,
-      "high": 20.265,
+      "high": 20.275,
       "low": 19.59,
-      "close": 20.265,
-      "volume": 1983408.0
+      "close": 20.25,
+      "volume": 2058004.0
     }
   ]
 }
